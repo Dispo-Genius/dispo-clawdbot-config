@@ -1,0 +1,15 @@
+{
+  "name": "diagram-layout",
+  "version": "1.0.0",
+  "description": "Shared layout algorithm for system diagrams",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "prepublishOnly": "npm run build"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0"
+  }
+}

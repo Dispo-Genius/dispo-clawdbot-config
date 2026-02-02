@@ -1,0 +1,19 @@
+{
+  "name": "vercel-cc",
+  "version": "1.0.0",
+  "description": "Vercel CLI tool for Claude Code",
+  "type": "module",
+  "main": "src/index.ts",
+  "scripts": {
+    "start": "npx tsx src/index.ts"
+  },
+  "dependencies": {
+    "commander": "^12.0.0",
+    "dotenv": "^17.2.3"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "tsx": "^4.0.0",
+    "typescript": "^5.0.0"
+  }
+}

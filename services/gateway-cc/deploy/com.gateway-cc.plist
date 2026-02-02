@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <!-- Label: unique identifier for the service -->
+    <key>Label</key>
+    <string>com.gateway-cc</string>
+
+    <!-- Working directory -->
+    <key>WorkingDirectory</key>
+    <string>/Users/polaris/.claude/tools/gateway-cc</string>
+
+    <!-- Program to run with arguments -->
+    <key>ProgramArguments</key>
+    <array>
+        <string>/opt/homebrew/bin/npx</string>
+        <string>tsx</string>
+        <string>/Users/polaris/.claude/tools/gateway-cc/src/index.ts</string>
+        <string>serve</string>
+        <string>--port</string>
+        <string>4100</string>
+        <string>--host</string>
+        <string>0.0.0.0</string>
+    </array>
+
+    <!-- Environment variables -->
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>PATH</key>
+        <string>/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin</string>
+        <key>HOME</key>
+        <string>/Users/polaris</string>
+    </dict>
+
+    <!-- Start on load (system boot) -->
+    <key>RunAtLoad</key>
+    <true/>
+
+    <!-- Keep alive: restart if it crashes -->
+    <key>KeepAlive</key>
+    <dict>
+        <key>SuccessfulExit</key>
+        <false/>
+    </dict>
+
+    <!-- Restart throttling: wait 10 seconds between restart attempts -->
+    <key>ThrottleInterval</key>
+    <integer>10</integer>
+
+    <!-- Logging -->
+    <key>StandardOutPath</key>
+    <string>/Users/polaris/Library/Logs/gateway-cc/stdout.log</string>
+    <key>StandardErrorPath</key>
+    <string>/Users/polaris/Library/Logs/gateway-cc/stderr.log</string>
+
+    <!-- Nice level: slightly lower priority than interactive processes -->
+    <key>Nice</key>
+    <integer>5</integer>
+</dict>
+</plist>

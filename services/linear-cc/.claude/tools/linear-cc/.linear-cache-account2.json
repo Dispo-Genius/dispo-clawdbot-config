@@ -1,0 +1,93 @@
+{
+  "lastSynced": "2026-01-31T15:11:48.937Z",
+  "team": {
+    "id": "05e533b4-661d-43df-84af-bec6f6c38f65",
+    "name": "PROTOTYPE",
+    "key": "PRO"
+  },
+  "states": {
+    "ready-to-dev": "e9245595-9863-4324-aab1-8458fb843b31",
+    "ready-to-merge": "29f33544-661a-46c7-b2ad-1256b9504c0f",
+    "in-review": "537e67ad-2afb-484a-81e6-bd64f525f88f",
+    "duplicate": "fc415c02-ed7e-43ee-a50b-a5ee06817930",
+    "done": "bba01b99-400e-4fa8-aa16-fff9e37c10d5",
+    "in-progress": "b4f02fc8-e392-4a23-9fb4-e0b349c06762",
+    "backlog": "65e00fdc-484f-4c45-9fa9-a51c9c630405",
+    "canceled": "57e9dd17-f7f7-41b9-ad9f-adfe7fc220ec",
+    "rnd": "348e09d9-9060-42b8-bb32-dfdbdd56cacc"
+  },
+  "labels": {
+    "performance": "7de7de6e-19b0-4f83-a104-aad10dfca3b2",
+    "idea": "d21d6d4a-0409-402a-b99a-1b8a0fed5ce6",
+    "ci/cd": "30cf783d-ff2f-46dc-97ab-41bb47054861",
+    "ui/ux": "824c4a2e-8016-48ae-b2de-ae966f14c1c4",
+    "tests": "d9a5432d-3ed2-47fb-8273-e86304308a2e",
+    "documentation": "12aad819-a594-47da-96b8-d2013f11ac84",
+    "refactor": "f544e547-607e-4f3b-ae1f-fad28a417534",
+    "bug-fix": "3b3916fb-644f-41d3-9ef9-9b5d2a9b2d36",
+    "ux": "83a20f96-6adb-4b7d-affc-ff613646b820",
+    "ui": "289db0be-5f38-4230-9fad-d3ceb3c88f1a",
+    "spec": "cb43bd02-9f5c-4148-a27f-e36f193fa8a8",
+    "feature": "cc19d7d1-e527-49c8-a01f-76c649d3ed5b",
+    "improvement": "6043177a-9001-468f-a598-557d17ade37d",
+    "bug": "30f21781-8869-4a62-b73d-2b1d5c5f82d3"
+  },
+  "projects": {
+    "Project Polaris Official": "1b4e3f49-4254-4a59-a358-1402645eaad2",
+    "Project Nebula": "3478c348-293f-4de6-8fe6-6c372f054367",
+    "Project Polaris (Official)": "d0b5cf4e-cf6d-4baf-bfc7-cfffda2bbe2c",
+    "Genius Profile": "ef12cfef-e52a-4fc0-bf33-faf0409e3f74",
+    "Empty State Mode": "8915a851-37a5-461d-b7fa-effa83d2e56f",
+    "UI/UX Improvements": "1c4c7f3b-492c-478f-8200-12ce788fc009",
+    "User Analytics": "cd4762dd-618f-4419-bf20-3d9a2fd47137",
+    "Components": "60b8de4a-11d1-4625-80e4-f4f25abb92b5",
+    "Project Polaris (DISCOUNTINUED)": "2477011f-44bc-487a-91a4-56457eef76a1",
+    "Project Blue": "4d3accb4-1ec8-4ab5-8430-55d920b06515",
+    "DX Improvements": "6850d4c9-89b2-4d3d-ae3a-d64f75b930b2",
+    "Global Features": "020bd523-b70b-4501-b645-aa530e4e1473",
+    "Design Studio": "764e3628-8935-48ba-94b9-8d8da89aed36",
+    "Settings": "3060cefd-d5f1-4d72-991a-f120ae0654c2",
+    "Website and Marketing": "4425d888-be6c-4187-b5cb-3b79c1a4ec45",
+    "Home Dashboard": "338888a0-c70a-4fee-9df3-da8d49682e5a",
+    "Deals Board": "6c425478-304f-4032-8c48-db76b1e5f15d",
+    "Investors Tab": "ff512472-bfee-4042-9f7a-63de694ddf09",
+    "Property Data Aggregation - Phase 1": "b3667d3c-c82e-4124-9af8-38f4f58c312a",
+    "Property Data Aggregation": "ad4e2337-70d2-416c-b6cf-949156a8346c",
+    "Prototype Enhancements": "a2bd167b-b1c6-472d-a902-27313dd8f77d",
+    "v2 Dispo Genius": "9afb317d-0b71-45a3-bcb6-30c1eb134f46",
+    "Support": "f1b982f5-5b71-4ee5-a3f4-314633b5e7e1",
+    "Investor Prospecting": "511a3a8b-54b4-4fd7-9c81-386756c75f66",
+    "System Upgrade": "77d2a582-be40-46e3-a8a4-13e45568e4f0",
+    "Genius Dialer": "a84c235c-6135-44b4-8b93-db183fe00ebd",
+    "Genius Marketing Suite": "c503fa24-a945-4011-9e8d-14a964fe4ccc",
+    "Genius Mode": "574f3fb0-46f0-4ef3-923d-c3004bfe2b95",
+    "Deals Area": "55b395af-e837-4ed7-badf-9b2df309ed13",
+    "Bulk Import": "67f0fd14-ea2a-469f-9aec-1424f9e62c3d",
+    "Send Flow": "ec1b660c-2d2a-4cec-a46c-23f6b25ef258",
+    "Buyer Genie": "c0291709-04a0-4d92-8b8f-c41370799baa"
+  },
+  "members": {
+    "zia@dispogenius.io": "20ddeca0-cf1f-4e16-bbf8-d2e2997f8301",
+    "Usman Ali": "dbe241ab-a005-48b8-9f47-66d828181945",
+    "Ali Hassan": "4741d255-593b-4e96-8efc-979365b7e1b5",
+    "Zeeshan": "ca492a07-bc14-4986-97f8-32540021cda1",
+    "Abdullah Raheel": "a03baea7-4172-4281-ae5d-5a9ada75bc01",
+    "Arbaz Khan": "d5f2052b-89a8-4996-8925-b02fa21df808",
+    "Andy Rong": "2e0043a2-2337-416a-8a4a-600e0c85d55c"
+  },
+  "milestones": {
+    "Project Polaris (Official)": {
+      "Supporting pipelines": "4aaf7470-72d4-4983-9736-a1293b08b264",
+      "Live user search system": "72efd100-7ec1-4433-a3e3-e50d30bcde5e",
+      "Investor Entity Enrichment Pipeline": "536a0c44-053c-4d42-9218-e6e8c5be3003",
+      "Property Data Aggregation Pipeline": "db027c34-45c3-4360-91b4-d2db5959b9bb"
+    },
+    "Project Polaris (DISCOUNTINUED)": {
+      "Bucket C properties handling pipeline": "81aa73c3-e6c4-4170-9718-57f1db01baf7",
+      "Live investor search system": "498fa6dc-7575-4652-8edc-fb097c254d8a",
+      "Investor entity enrichment system": "45f82542-5560-4e2f-b042-29e2438ab846",
+      "Ongoing property data updates pipeline": "35e1cec8-08d3-4589-a226-f05f3759b5eb",
+      "Initial property data aggregation": "67863360-c239-4a7c-937c-7deef4881beb"
+    }
+  }
+}

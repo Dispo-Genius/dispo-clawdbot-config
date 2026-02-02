@@ -1,0 +1,44 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+dist/
+build/
+
+# Environment
+.env
+.env.local
+*.local
+
+# Logs
+*.log
+logs/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Credentials (never commit)
+*.pem
+*.key
+credentials.json
+gateway.json
+
+# Database files
+*.db
+*.db-shm
+*.db-wal
+
+# Cache files
+*-cache.json
+.github-cache.json
+.linear-cache.json
+.slack-cache.json
+.vercel-cache.json
+
+# Lock files
+package-lock.json
