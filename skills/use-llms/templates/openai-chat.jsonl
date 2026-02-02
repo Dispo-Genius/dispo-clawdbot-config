@@ -1,0 +1,5 @@
+{"messages": [{"role": "system", "content": "You are a sentiment classifier. Respond with exactly one word: positive, negative, or neutral."}, {"role": "user", "content": "I absolutely love this product! Best purchase I've ever made."}, {"role": "assistant", "content": "positive"}]}
+{"messages": [{"role": "system", "content": "You are a sentiment classifier. Respond with exactly one word: positive, negative, or neutral."}, {"role": "user", "content": "Terrible experience. The product broke after one day and customer service was unhelpful."}, {"role": "assistant", "content": "negative"}]}
+{"messages": [{"role": "system", "content": "You are a sentiment classifier. Respond with exactly one word: positive, negative, or neutral."}, {"role": "user", "content": "It's okay. Does what it says but nothing special."}, {"role": "assistant", "content": "neutral"}]}
+{"messages": [{"role": "user", "content": "Classify the sentiment: Great service, fast shipping!"}, {"role": "assistant", "content": "positive"}]}
+{"messages": [{"role": "user", "content": "Classify the sentiment: Not worth the price at all."}, {"role": "assistant", "content": "negative"}]}
