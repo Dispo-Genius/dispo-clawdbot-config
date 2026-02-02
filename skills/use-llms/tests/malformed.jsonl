@@ -1,0 +1,5 @@
+{"id":"1","messages":[{"role":"system","content":"Test"},{"role":"user","content":"Hello"}]}
+{"id":"2","bad_field":"no messages array"}
+{"id":"3","messages":[{"role":"system","content":"Test"},{"role":"user","content":"World"}]}
+not valid json at all
+{"id":"5","messages":[{"role":"system","content":"Test"},{"role":"user","content":"Final"}]}

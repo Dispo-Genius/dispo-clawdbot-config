@@ -1,0 +1,38 @@
+# TOON Format Example for Fine-Tuning
+# Token-Oriented Object Notation - 40-60% fewer tokens than JSON
+# See: references/token-optimization.md
+
+# Format: header row, then data rows separated by pipe (|)
+# Best for: tabular data, uniform arrays, structured inputs
+
+# Example 1: Entity Resolution Training Data
+# Task: Match property addresses to canonical addresses
+input_address|canonical_address|match_type
+123 Main St, Apt 1, New York, NY|123 Main Street, Unit 1, New York, NY 10001|exact
+456 Oak Avenue|456 Oak Ave|abbreviation
+789 First Street Suite 100|789 1st St Ste 100|normalization
+100 Broadway Flr 5|100 Broadway Floor 5|abbreviation
+1000 Park Place #2B|1000 Park Pl Apartment 2B|normalization
+
+# Example 2: Sentiment Classification
+# Use for: training compact classification models
+text|label|confidence
+Great product, highly recommend!|positive|0.95
+Terrible service, never ordering again|negative|0.98
+It's okay, nothing special|neutral|0.85
+Fast shipping, but packaging was damaged|mixed|0.75
+Best purchase I've made this year!|positive|0.99
+
+# Example 3: Contact Normalization
+# Task: Standardize contact information
+raw_name|raw_phone|raw_email|normalized_name|normalized_phone|normalized_email
+John Smith Jr.|555.123.4567|john@example.com|John Smith Jr.|+1-555-123-4567|john@example.com
+JANE DOE|(555) 987-6543|JANE.DOE@EMAIL.COM|Jane Doe|+1-555-987-6543|jane.doe@email.com
+Bob wilson|5551234567|bob_wilson@mail|Bob Wilson|+1-555-123-4567|bob_wilson@mail
+
+# Conversion Commands:
+# fine-tuner-cc convert data.json --to toon > data.toon
+# fine-tuner-cc convert data.toon --to json > data.json
+
+# npm package: @toon-format/toon
+# import { toToon, fromToon } from '@toon-format/toon';

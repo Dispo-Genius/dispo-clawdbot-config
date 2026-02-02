@@ -1,0 +1,5 @@
+{"id":"1","messages":[{"role":"system","content":"Respond with YES or NO only."},{"role":"user","content":"Is 2+2=4?"}]}
+{"id":"2","messages":[{"role":"system","content":"Respond with YES or NO only."},{"role":"user","content":"Is the sky green?"}]}
+{"id":"3","messages":[{"role":"system","content":"Respond with YES or NO only."},{"role":"user","content":"Is water wet?"}]}
+{"id":"4","messages":[{"role":"system","content":"Respond with YES or NO only."},{"role":"user","content":"Is fire cold?"}]}
+{"id":"5","messages":[{"role":"system","content":"Respond with YES or NO only."},{"role":"user","content":"Is 10 > 5?"}]}
