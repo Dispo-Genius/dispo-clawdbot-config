@@ -1,6 +1,6 @@
 # Escalation Workflow
 
-Hand off a ticket to human support.
+Hand off a ticket to human support - but try de-escalation first when appropriate.
 
 ## When to Use
 
@@ -27,6 +27,41 @@ Escalate when any of these apply:
 - Customer is frustrated/angry
 - Repeated escalation requests
 - Threatening language
+
+## De-Escalation First (For Emotional Triggers)
+
+Before escalating frustrated customers, try HEARD model recovery:
+
+### HEARD Model
+1. **Hear** - Read their full message without jumping to defense
+2. **Empathize** - "I completely understand your frustration"
+3. **Apologize** - Own it: "I'm sorry this happened" (not "sorry you feel...")
+4. **Resolve** - Fix with urgency + tangible gesture
+5. **Diagnose** - "I'm flagging this so we can prevent it"
+
+### De-escalation Response Template
+```
+Hi [Name],
+
+You're absolutely right to be frustrated - [acknowledge specific issue] is not acceptable.
+
+I'm sorry we let you down on this. No excuses.
+
+Here's what I've done:
+1. [Immediate fix]
+2. [Compensation/gesture]
+3. [Prevention measure]
+
+If you'd prefer to speak with a team member directly, just say the word - I'll connect you immediately. Otherwise, I'm committed to making this right.
+```
+
+### When De-escalation Won't Work
+- Customer has explicitly requested human 2+ times
+- Threatening or abusive language
+- Legal implications
+- You've already tried HEARD without improvement
+
+In these cases, escalate immediately. Don't prolong frustration.
 
 ## Process
 

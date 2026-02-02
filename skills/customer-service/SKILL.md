@@ -36,6 +36,19 @@ npx tsx ~/.claude/services/gleap-cc/src/index.ts close-ticket <id> --note "Resol
 | [escalation](workflows/escalation.md) | Hand off to human support |
 | [proactive-outreach](workflows/proactive-outreach.md) | Proactive customer contact |
 
+## Service Philosophy
+
+**Goal:** 6-7 star responses minimum, 8-star when opportunity arises.
+
+We use world-class service frameworks:
+- **11-Star Framework** - Design extreme delight, work backward to sustainable excellence
+- **Disney HEARD** - Hear, Empathize, Apologize, Resolve, Diagnose
+- **Ritz-Carlton** - Anticipation, ownership, $2000 empowerment rule
+- **Zappos** - Authenticity over efficiency, genuine human connection
+- **Apple APPLE** - Approach, Probe, Present, Listen, End
+
+See [references/](references/) for detailed framework guides.
+
 ## Response Guidelines
 
 **Tone:**
@@ -85,9 +98,14 @@ Gleap abstracts channels (in-app, email, WhatsApp). Adjust tone slightly:
 | Email | Slightly more formal, complete |
 | WhatsApp | Brief, mobile-friendly |
 
-## Templates
+## Templates & Frameworks
 
-See [response-templates.md](references/response-templates.md) for approved responses.
+| Reference | Purpose |
+|-----------|---------|
+| [response-templates.md](references/response-templates.md) | Approved response templates |
+| [11-star-framework.md](references/11-star-framework.md) | Airbnb's delight methodology |
+| [service-frameworks.md](references/service-frameworks.md) | Disney, Ritz, Zappos, Apple |
+| [delight-moments.md](references/delight-moments.md) | Surprise & delight playbook |
 
 ## Setup
 

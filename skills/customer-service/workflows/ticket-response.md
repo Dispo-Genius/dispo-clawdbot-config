@@ -1,12 +1,19 @@
 # Ticket Response Workflow
 
-Handle a single customer support ticket.
+Handle a single customer support ticket with 6-star minimum quality.
 
 ## When to Use
 
 - "Respond to ticket X"
 - "Help this customer"
 - "Handle support request"
+
+## Target Quality
+
+**Minimum:** 6-star (solve + anticipate + unexpected value)
+**Aim for:** 7-star when triggers present (longtime customer, patient, provided feedback)
+
+See [11-star-framework.md](../references/11-star-framework.md) for star level definitions.
 
 ## Process
 
@@ -45,9 +52,18 @@ If articles found:
 - Extract key points to include
 - Note article link for customer
 
-### Step 4: Check Escalation Rules
+### Step 4: Assess Emotion & Check Escalation
 
-Review [escalation-rules.md](../references/escalation-rules.md).
+**Is customer frustrated/angry?** Apply HEARD model first:
+1. **Hear** - Let them fully explain (may need to re-read carefully)
+2. **Empathize** - "I understand how frustrating this is"
+3. **Apologize** - Sincere, specific apology
+4. **Resolve** - Fix with urgency
+5. **Diagnose** - Note for systemic fix
+
+See [service-frameworks.md](../references/service-frameworks.md) for full HEARD guide.
+
+**Check escalation rules:** Review [escalation-rules.md](../references/escalation-rules.md).
 
 **Escalate if:**
 - Customer requested human
@@ -58,25 +74,40 @@ Review [escalation-rules.md](../references/escalation-rules.md).
 
 If escalating, go to [escalation.md](./escalation.md).
 
-### Step 5: Draft Response
+### Step 5: Draft Response (6-Star Minimum)
 
 Use template from [response-templates.md](../references/response-templates.md).
 
-**Format:**
+**Before drafting, ask:**
+1. What's the stated problem? (Must solve completely)
+2. What's the obvious follow-up question? (Anticipate it)
+3. What unexpected value can I add? (One extra thing)
+4. Is there a delight trigger? (Check [delight-moments.md](../references/delight-moments.md))
+
+**6-Star Format:**
 ```
 Hi [FirstName],
 
-[Acknowledge their issue in 1 sentence]
+[Empathy - acknowledge the impact, not just the facts]
 
-[Solution or next steps - be specific]
+[Solution - complete and specific]
+
+[Anticipation - address the next question they'd ask]
+
+[Unexpected value - one thing they didn't expect]
 
 [If KB article relevant: "You can also find more details here: [link]"]
 
-Let me know if you have any other questions!
+[Personal close - not generic]
 
 Best,
 [Support Team / Polaris]
 ```
+
+**7-Star additions (if triggers present):**
+- Recognize them as individual (tenure, contribution)
+- Tangible gesture (credit, feature unlock, priority flag)
+- Reference something specific from their context
 
 ### Step 6: User Approval
 
