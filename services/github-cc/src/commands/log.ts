@@ -1,6 +1,6 @@
 import { Command } from 'commander';
 import { isGitRepo, git } from '../api/git';
-import { output, errorOutput, getFormat } from '../utils/output';
+import { output, errorOutput, getFormat, handleError } from '../utils/output';
 
 interface LogEntry {
   hash: string;
@@ -75,6 +75,6 @@ export const log = new Command('log')
         }
       }
     } catch (error) {
-      errorOutput(error instanceof Error ? error.message : 'Unknown error');
+      handleError(error);
     }
   });

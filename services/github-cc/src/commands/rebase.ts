@@ -1,7 +1,7 @@
 import { Command } from 'commander';
-import { git, isGitRepo } from '../api/git';
+import { git, isGitRepo, GitError } from '../api/git';
 import { getStatus } from '../utils/parsers';
-import { formatRebaseResult, output, errorOutput } from '../utils/output';
+import { formatRebaseResult, output, errorOutput, handleError } from '../utils/output';
 import type { RebaseResult } from '../types';
 
 export const rebase = new Command('rebase')
@@ -31,6 +31,9 @@ export const rebase = new Command('rebase')
               conflicts: status.conflicts.map(c => c.path),
             };
           } else {
+            if (error instanceof GitError) {
+              errorOutput(`rebase --continue failed: ${error.summary}`, error.fullOutput);
+            }
             errorOutput(`rebase --continue failed: ${error instanceof Error ? error.message : 'Unknown error'}`);
           }
         }
@@ -49,6 +52,9 @@ export const rebase = new Command('rebase')
               conflicts: status.conflicts.map(c => c.path),
             };
           } else {
+            if (error instanceof GitError) {
+              errorOutput(`rebase failed: ${error.summary}`, error.fullOutput);
+            }
             errorOutput(`rebase failed: ${error instanceof Error ? error.message : 'Unknown error'}`);
           }
         }
@@ -56,6 +62,6 @@ export const rebase = new Command('rebase')
 
       output(formatRebaseResult(result!));
     } catch (error) {
-      errorOutput(error instanceof Error ? error.message : 'Unknown error');
+      handleError(error);
     }
   });

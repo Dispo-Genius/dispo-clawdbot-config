@@ -1,7 +1,7 @@
 import { Command } from 'commander';
-import { git, isGitRepo, getCurrentBranch } from '../api/git';
+import { git, isGitRepo, getCurrentBranch, GitError } from '../api/git';
 import { getStatus } from '../utils/parsers';
-import { output, errorOutput, formatSuccess } from '../utils/output';
+import { output, errorOutput, formatSuccess, handleError } from '../utils/output';
 
 export const fetch = new Command('fetch')
   .description('Fetch and rebase from target branch')
@@ -19,6 +19,9 @@ export const fetch = new Command('fetch')
       try {
         git(['fetch', remote]);
       } catch (error) {
+        if (error instanceof GitError) {
+          errorOutput(`fetch failed: ${error.summary}`, error.fullOutput);
+        }
         errorOutput(`fetch failed: ${error instanceof Error ? error.message : 'Unknown error'}`);
       }
 
@@ -37,10 +40,13 @@ export const fetch = new Command('fetch')
         if (status.isRebase && status.conflicts.length > 0) {
           output(`fetch:CONFLICT,${status.rebaseStep}/${status.rebaseTotal},conflicts[${status.conflicts.length}]{${status.conflicts.map(c => c.path).join(',')}}`);
         } else {
+          if (error instanceof GitError) {
+            errorOutput(`rebase failed: ${error.summary}`, error.fullOutput);
+          }
           errorOutput(`rebase failed: ${error instanceof Error ? error.message : 'Unknown error'}`);
         }
       }
     } catch (error) {
-      errorOutput(error instanceof Error ? error.message : 'Unknown error');
+      handleError(error);
     }
   });

@@ -1,6 +1,6 @@
 import { Command } from 'commander';
 import { ghRaw } from '../api/client';
-import { output, formatMutationResult, errorOutput } from '../utils/output';
+import { output, formatMutationResult, handleError } from '../utils/output';
 
 export const prCreate = new Command('pr-create')
   .description('Create a pull request')
@@ -53,6 +53,6 @@ export const prCreate = new Command('pr-create')
         draft: options.draft || false,
       }));
     } catch (error) {
-      errorOutput(error instanceof Error ? error.message : 'Unknown error');
+      handleError(error);
     }
   });

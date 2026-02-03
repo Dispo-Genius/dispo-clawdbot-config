@@ -7,6 +7,18 @@ export interface GhOptions {
   args?: string[];
 }
 
+// Custom error class to preserve full gh output
+export class GhError extends Error {
+  constructor(
+    public summary: string,
+    public fullOutput: string,
+    public command: string
+  ) {
+    super(summary);
+    this.name = 'GhError';
+  }
+}
+
 /**
  * Execute a gh CLI command and return parsed JSON result
  */
@@ -36,17 +48,28 @@ export function gh<T>(command: string, options: GhOptions = {}): T {
     stdio: ['pipe', 'pipe', 'pipe'],
   };
 
+  const fullCommand = `gh ${args.join(' ')}`;
+
   try {
     // Use execFileSync with array args to properly handle spaces in values
     const result = execFileSync('gh', args, execOptions) as string;
     return JSON.parse(result.trim()) as T;
   } catch (error) {
-    if (error instanceof Error && 'stderr' in error) {
-      const stderr = (error as { stderr?: Buffer | string }).stderr;
-      const message = stderr
-        ? Buffer.isBuffer(stderr) ? stderr.toString() : stderr
-        : error.message;
-      throw new Error(formatGhError(message));
+    if (error instanceof Error) {
+      const stderr = 'stderr' in error
+        ? ((error as { stderr?: Buffer | string }).stderr || '')
+        : '';
+      const stdout = 'stdout' in error
+        ? ((error as { stdout?: Buffer | string }).stdout || '')
+        : '';
+
+      const stderrStr = Buffer.isBuffer(stderr) ? stderr.toString() : String(stderr);
+      const stdoutStr = Buffer.isBuffer(stdout) ? stdout.toString() : String(stdout);
+
+      const fullOutput = [stderrStr, stdoutStr].filter(Boolean).join('\n').trim();
+      const summary = formatGhError(stderrStr || error.message);
+
+      throw new GhError(summary, fullOutput || error.message, fullCommand);
     }
     throw error;
   }
@@ -65,16 +88,27 @@ export function ghRaw(command: string, args: string[] = []): string {
     stdio: ['pipe', 'pipe', 'pipe'],
   };
 
+  const fullCommand = `gh ${allArgs.join(' ')}`;
+
   try {
     // Use execFileSync with array args to properly handle spaces in values
     return (execFileSync('gh', allArgs, execOptions) as string).trim();
   } catch (error) {
-    if (error instanceof Error && 'stderr' in error) {
-      const stderr = (error as { stderr?: Buffer | string }).stderr;
-      const message = stderr
-        ? Buffer.isBuffer(stderr) ? stderr.toString() : stderr
-        : error.message;
-      throw new Error(formatGhError(message));
+    if (error instanceof Error) {
+      const stderr = 'stderr' in error
+        ? ((error as { stderr?: Buffer | string }).stderr || '')
+        : '';
+      const stdout = 'stdout' in error
+        ? ((error as { stdout?: Buffer | string }).stdout || '')
+        : '';
+
+      const stderrStr = Buffer.isBuffer(stderr) ? stderr.toString() : String(stderr);
+      const stdoutStr = Buffer.isBuffer(stdout) ? stdout.toString() : String(stdout);
+
+      const fullOutput = [stderrStr, stdoutStr].filter(Boolean).join('\n').trim();
+      const summary = formatGhError(stderrStr || error.message);
+
+      throw new GhError(summary, fullOutput || error.message, fullCommand);
     }
     throw error;
   }

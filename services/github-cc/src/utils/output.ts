@@ -273,22 +273,54 @@ export function formatMutationResult(action: string, data: Record<string, unknow
   return `${action}:${parts.join('|')}`;
 }
 
-export function formatError(error: string): string {
+export function formatError(error: string, details?: string): string {
   const format = getFormat();
 
   if (format === 'json') {
-    return JSON.stringify({ success: false, error }, null, 2);
+    return JSON.stringify({ success: false, error, details }, null, 2);
   }
-  return `error:${error}`;
+
+  // Clean structured format that's always parseable
+  const lines = [`[ERROR] ${error}`];
+  if (details) {
+    // Include full details on subsequent lines
+    lines.push('---');
+    lines.push(details.trim());
+  }
+  return lines.join('\n');
 }
 
 export function output(data: string): void {
   console.log(data);
 }
 
-export function errorOutput(error: string): never {
-  console.log(formatError(error));
+export function errorOutput(error: string, details?: string): never {
+  console.log(formatError(error, details));
   process.exit(1);
+}
+
+/**
+ * Handle any error with full context preservation
+ * Use this in catch blocks to ensure Claude always sees full output
+ * Works for both GitError and GhError (duck typing to avoid circular imports)
+ */
+export function handleError(error: unknown): never {
+  // Check for GitError/GhError shape (duck typing to avoid circular import)
+  if (
+    error !== null &&
+    typeof error === 'object' &&
+    'summary' in error &&
+    'fullOutput' in error &&
+    typeof (error as { summary: unknown }).summary === 'string' &&
+    typeof (error as { fullOutput: unknown }).fullOutput === 'string'
+  ) {
+    const customError = error as { summary: string; fullOutput: string };
+    errorOutput(customError.summary, customError.fullOutput);
+  }
+  if (error instanceof Error) {
+    errorOutput(error.message);
+  }
+  errorOutput('Unknown error');
 }
 
 // Git formatters

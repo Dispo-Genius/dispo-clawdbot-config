@@ -1,6 +1,6 @@
 import { Command } from 'commander';
 import { isGitRepo, git } from '../api/git';
-import { formatSuccess, output, errorOutput } from '../utils/output';
+import { formatSuccess, output, errorOutput, handleError } from '../utils/output';
 
 export const stash = new Command('stash')
   .description('Stash or restore changes')
@@ -46,6 +46,6 @@ export const stash = new Command('stash')
           errorOutput(`unknown stash action: ${action}`);
       }
     } catch (error) {
-      errorOutput(error instanceof Error ? error.message : 'Unknown error');
+      handleError(error);
     }
   });

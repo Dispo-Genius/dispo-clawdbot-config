@@ -1,7 +1,7 @@
 import { Command } from 'commander';
 import { isGitRepo } from '../api/git';
 import { getDiffStats, getDiff } from '../utils/parsers';
-import { formatDiffStats, formatDiffFull, output, errorOutput } from '../utils/output';
+import { formatDiffStats, formatDiffFull, output, errorOutput, handleError } from '../utils/output';
 
 export const diff = new Command('diff')
   .description('Show diff (use --stat for compact stats)')
@@ -26,6 +26,6 @@ export const diff = new Command('diff')
         }
       }
     } catch (error) {
-      errorOutput(error instanceof Error ? error.message : 'Unknown error');
+      handleError(error);
     }
   });

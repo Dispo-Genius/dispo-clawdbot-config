@@ -1,6 +1,6 @@
 import { Command } from 'commander';
 import { isGitRepo, git, getCurrentBranch } from '../api/git';
-import { formatSuccess, output, errorOutput } from '../utils/output';
+import { formatSuccess, output, errorOutput, handleError } from '../utils/output';
 
 export const push = new Command('push')
   .description('Push commits to remote')
@@ -33,6 +33,6 @@ export const push = new Command('push')
       git(args);
       output(formatSuccess('push', `${remote}/${currentBranch}`));
     } catch (error) {
-      errorOutput(error instanceof Error ? error.message : 'Unknown error');
+      handleError(error);
     }
   });

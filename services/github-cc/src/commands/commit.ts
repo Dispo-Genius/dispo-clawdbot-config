@@ -1,6 +1,6 @@
 import { Command } from 'commander';
 import { isGitRepo, git, gitRaw } from '../api/git';
-import { formatSuccess, output, errorOutput } from '../utils/output';
+import { formatSuccess, output, errorOutput, handleError } from '../utils/output';
 
 export const commit = new Command('commit')
   .description('Commit staged changes')
@@ -24,6 +24,6 @@ export const commit = new Command('commit')
       const hash = gitRaw('rev-parse --short HEAD');
       output(formatSuccess('commit', hash));
     } catch (error) {
-      errorOutput(error instanceof Error ? error.message : 'Unknown error');
+      handleError(error);
     }
   });
