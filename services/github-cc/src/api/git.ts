@@ -1,5 +1,17 @@
 import { execFileSync, ExecSyncOptions } from 'child_process';
 
+// Custom error class to preserve full git output
+export class GitError extends Error {
+  constructor(
+    public summary: string,
+    public fullOutput: string,
+    public command: string
+  ) {
+    super(summary);
+    this.name = 'GitError';
+  }
+}
+
 /**
  * Execute a git command and return the output
  * Uses execFileSync with array args for safety (no shell injection)
@@ -12,16 +24,28 @@ export function git(args: string[], options: { throwOnError?: boolean } = {}): s
     env: { ...process.env, GIT_EDITOR: 'true' },
   };
 
+  const command = `git ${args.join(' ')}`;
+
   try {
     return (execFileSync('git', args, execOptions) as string).trim();
   } catch (error) {
     if (options.throwOnError !== false) {
-      if (error instanceof Error && 'stderr' in error) {
-        const stderr = (error as { stderr?: Buffer | string }).stderr;
-        const message = stderr
-          ? Buffer.isBuffer(stderr) ? stderr.toString() : stderr
-          : error.message;
-        throw new Error(formatGitError(message));
+      if (error instanceof Error) {
+        const stderr = 'stderr' in error
+          ? ((error as { stderr?: Buffer | string }).stderr || '')
+          : '';
+        const stdout = 'stdout' in error
+          ? ((error as { stdout?: Buffer | string }).stdout || '')
+          : '';
+
+        const stderrStr = Buffer.isBuffer(stderr) ? stderr.toString() : String(stderr);
+        const stdoutStr = Buffer.isBuffer(stdout) ? stdout.toString() : String(stdout);
+
+        // Combine all output for full context
+        const fullOutput = [stderrStr, stdoutStr].filter(Boolean).join('\n').trim();
+        const summary = formatGitError(stderrStr || error.message);
+
+        throw new GitError(summary, fullOutput || error.message, command);
       }
       throw error;
     }

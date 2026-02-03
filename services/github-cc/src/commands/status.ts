@@ -1,7 +1,7 @@
 import { Command } from 'commander';
 import { isGitRepo } from '../api/git';
 import { getStatus } from '../utils/parsers';
-import { formatStatus, output, errorOutput } from '../utils/output';
+import { formatStatus, output, errorOutput, handleError } from '../utils/output';
 
 export const status = new Command('status')
   .description('One-line git status summary')
@@ -14,6 +14,6 @@ export const status = new Command('status')
       const gitStatus = getStatus();
       output(formatStatus(gitStatus));
     } catch (error) {
-      errorOutput(error instanceof Error ? error.message : 'Unknown error');
+      handleError(error);
     }
   });

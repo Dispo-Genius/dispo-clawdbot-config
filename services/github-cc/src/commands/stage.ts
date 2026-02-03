@@ -1,7 +1,7 @@
 import { Command } from 'commander';
 import { isGitRepo } from '../api/git';
 import { stageFiles } from '../utils/parsers';
-import { formatStageResult, output, errorOutput } from '../utils/output';
+import { formatStageResult, output, errorOutput, handleError } from '../utils/output';
 
 export const stage = new Command('stage')
   .description('Stage files and confirm')
@@ -20,6 +20,6 @@ export const stage = new Command('stage')
 
       output(formatStageResult(staged));
     } catch (error) {
-      errorOutput(error instanceof Error ? error.message : 'Unknown error');
+      handleError(error);
     }
   });
