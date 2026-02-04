@@ -1,0 +1,7 @@
+name: account-selector
+description: Local account selection using macOS keychain credentials
+version: 1.0.0
+
+tool:
+  path: tool
+  entrypoint: npx tsx src/index.ts

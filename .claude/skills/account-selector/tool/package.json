@@ -1,0 +1,11 @@
+{
+  "name": "account-selector",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "start": "tsx src/index.ts"
+  },
+  "dependencies": {
+    "tsx": "^4.7.0"
+  }
+}
