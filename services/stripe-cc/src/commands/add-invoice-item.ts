@@ -42,7 +42,6 @@ export const addInvoiceItem = new Command('add-invoice-item')
         amount: parseInt(opts.amount, 10),
         currency: opts.currency,
         description: opts.description,
-        quantity: parseInt(opts.quantity, 10),
         ...(opts.metadata && { metadata: JSON.parse(opts.metadata) }),
       });
 
